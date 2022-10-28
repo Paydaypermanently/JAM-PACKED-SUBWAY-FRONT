@@ -10,11 +10,10 @@ import '../styles/reset.css'
 import '../styles/colors.css'
 
 import breakpointsTheme from '../styles/breakpoints'
-import customTheme from '../styles/theme'
 import GlobalStyles from '../styles/globalStyles'
 import Layout from '../components/layouts/Layout'
 
-const theme = {...breakpointsTheme, ...customTheme}
+const theme = {...breakpointsTheme}
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -28,7 +27,7 @@ function MyApp({Component, pageProps}: AppProps) {
   return (
     <>
       <Head>
-        <title>TITLE</title>
+        <title>서울 지하철 혼잡도</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>

@@ -1,12 +1,7 @@
 import styled from 'styled-components'
 
 function Home() {
-  return (
-    <Content>
-      Weplanet <br />
-      <br /> Next.js Template
-    </Content>
-  )
+  return <Content>실시간 서울 지하철 칸별 혼잡도</Content>
 }
 
 export default Home
