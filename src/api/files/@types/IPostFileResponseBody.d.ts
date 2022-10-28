@@ -1,0 +1,3 @@
+interface IPostFileResponseBody {
+  url: string
+}
