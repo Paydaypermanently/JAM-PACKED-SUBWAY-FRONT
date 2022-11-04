@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
-interface IProps {
-  onSubmit: () => void
-}
-function SubmitButton({onSubmit}: IProps) {
-  return <Wrapper onClick={() => onSubmit()}>실시간 혼잡도 검색</Wrapper>
+function SubmitButton() {
+  return (
+    <Wrapper>
+      <button type="submit">실시간 혼잡도 검색</button>
+    </Wrapper>
+  )
 }
 
 export default SubmitButton
