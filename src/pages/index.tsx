@@ -1,5 +1,16 @@
-function Index() {
-  return <h1>실시간 서울철</h1>
+import Logo from '../components/main/Logo'
+import SubwayForm from '../components/main/SubwayForm'
+import styled from 'styled-components'
+
+function Main() {
+  return (
+    <Wrapper>
+      <Logo />
+      <SubwayForm />
+    </Wrapper>
+  )
 }
 
-export default Index
+export default Main
+
+const Wrapper = styled.div``

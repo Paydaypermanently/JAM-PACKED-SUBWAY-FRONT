@@ -1,7 +1,8 @@
 import axios, {AxiosRequestConfig} from 'axios'
 import getJson from './getJson'
 
-const BASE_URL = `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/subway`
+const BASE_URL = `${process.env.NEXT_PUBLIC_BASE_URL}`
+
 export const instance = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
