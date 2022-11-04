@@ -1,8 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
+import DirectionField from '../modules/DirectionField'
+import StationField from '../modules/StationField'
+import LineField from '../modules/LineField'
 
 function SubwayForm() {
-  return <Wrapper>form</Wrapper>
+  return (
+    <Wrapper>
+      <FormTable>
+        <tr>
+          <LineField />
+        </tr>
+        <tr>
+          <StationField />
+        </tr>
+        <tr>
+          <DirectionField />
+        </tr>
+      </FormTable>
+    </Wrapper>
+  )
 }
 
 export default SubwayForm
@@ -15,4 +32,11 @@ const Wrapper = styled.div`
   border-radius: 30px;
   display: flex;
   justify-content: center;
+`
+const FormTable = styled.table`
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
