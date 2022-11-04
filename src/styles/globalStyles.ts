@@ -43,6 +43,38 @@ const GlobalStyles = createGlobalStyle`
       -webkit-user-drag: none;
     }
 
+    input:active,
+    input:focus,
+    input:focus-visible {
+      border: none;
+      outline: 0;
+    }
+    input ::placeholder {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    label {
+      
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+    input {
+      padding: 0;
+      border: none;
+      background: transparent;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0;
+      border: none;
+      background: none;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+
     button,
     a {
       cursor: pointer;
@@ -51,6 +83,8 @@ const GlobalStyles = createGlobalStyle`
         opacity: 0.8;
       }
     }
+
+
 
     html,
     body {
