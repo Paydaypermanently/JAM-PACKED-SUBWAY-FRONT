@@ -16,12 +16,12 @@ function SubwayForm() {
           </tr>
           <tr>
             <td>
-              <StationField />
+              <DirectionField />
             </td>
           </tr>
           <tr>
             <td>
-              <DirectionField />
+              <StationField />
             </td>
           </tr>
         </tbody>
