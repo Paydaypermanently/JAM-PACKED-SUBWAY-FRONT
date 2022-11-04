@@ -8,15 +8,23 @@ function SubwayForm() {
   return (
     <Wrapper>
       <FormTable>
-        <tr>
-          <LineField />
-        </tr>
-        <tr>
-          <StationField />
-        </tr>
-        <tr>
-          <DirectionField />
-        </tr>
+        <tbody>
+          <tr>
+            <td>
+              <LineField />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StationField />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <DirectionField />
+            </td>
+          </tr>
+        </tbody>
       </FormTable>
     </Wrapper>
   )
@@ -36,7 +44,8 @@ const Wrapper = styled.div`
 const FormTable = styled.table`
   margin-top: 50px;
   margin-bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
+  tbody {
+    height: 100%;
+  }
 `
