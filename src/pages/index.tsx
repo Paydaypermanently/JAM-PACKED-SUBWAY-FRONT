@@ -1,17 +1,16 @@
+import Logo from '../components/main/Logo'
+import SubwayForm from '../components/main/SubwayForm'
 import styled from 'styled-components'
 
-function Home() {
-  return <Content>실시간 서울 지하철 칸별 혼잡도</Content>
+function Main() {
+  return (
+    <Wrapper>
+      <Logo />
+      <SubwayForm />
+    </Wrapper>
+  )
 }
 
-export default Home
+export default Main
 
-const Content = styled.h1`
-  padding: 100px 20px;
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
+const Wrapper = styled.div``

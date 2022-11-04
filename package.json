@@ -18,6 +18,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-query": "^3.39.1",
+    "react-toastify": "^9.1.1",
     "recoil": "^0.7.4",
     "styled-breakpoints": "^11.1.0",
     "styled-components": "^5.3.5",
