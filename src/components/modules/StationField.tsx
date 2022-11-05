@@ -11,7 +11,7 @@ function StationField() {
       <Input
         name="station"
         placeholder="역"
-        endAdornment={<Image src={`/assets/images/selectArrow.png`} alt="arrow" width={13} height={11} />}
+        endAdornment={<Image src={`/assets/images/search.png`} alt="arrow" width={20} height={20} />}
         onChange={form.handleChange}
       />
     </div>

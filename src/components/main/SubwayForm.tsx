@@ -3,8 +3,12 @@ import styled from 'styled-components'
 import DirectionField from '../modules/DirectionField'
 import StationField from '../modules/StationField'
 import LineField from '../modules/LineField'
+import SpeedField from '../modules/SpeedField'
+import {FormikContextType, useFormikContext} from 'formik'
 
 function SubwayForm() {
+  const form: FormikContextType<any> = useFormikContext()
+
   return (
     <Wrapper>
       <FormTable>
@@ -14,6 +18,15 @@ function SubwayForm() {
               <LineField />
             </td>
           </tr>
+
+          {(form.getFieldProps('line').value === '1호선' || form.getFieldProps('line').value === '9호선') && (
+            <tr>
+              <td>
+                <SpeedField />
+              </td>
+            </tr>
+          )}
+
           <tr>
             <td>
               <DirectionField />

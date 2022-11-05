@@ -1,3 +1,5 @@
+import {GetServerSideProps} from 'next'
+
 function CongestionResult() {
   return <>결과</>
 }

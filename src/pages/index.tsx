@@ -6,30 +6,37 @@ import {useCallback} from 'react'
 import {useRouter} from 'next/router'
 import {Formik} from 'formik'
 import {toast, ToastContainer} from 'react-toastify'
+import {FormikContextType, useFormikContext} from 'formik'
 
 const initials = {
   initialValues: {
     line: '',
     station: '',
-    direction: ''
+    direction: '',
+    speed: ''
   }
 }
 
 function Main() {
   const router = useRouter()
+  const form: FormikContextType<any> = useFormikContext()
+
   const handleSubmit = useCallback(
-    (values: ISubwayForm) => {
-      if (values.line.length < 1) {
+    ({line, direction, station, speed}: ISubwayForm) => {
+      if (line.length < 1) {
         toast.error('호선을 입력하세요.')
         return
-      } else if (values.direction.length < 1) {
+      } else if ((line === '1호선' || line === '9호선') && speed !== undefined && speed.length < 1) {
+        toast.error('급행 여부를 선택하세요.')
+        return
+      } else if (direction.length < 1) {
         toast.error('방향을 입력하세요.')
         return
-      } else if (values.station.length < 1) {
+      } else if (station.length < 1) {
         toast.error('역을 입력하세요.')
         return
       }
-      router.push('/congestionResult')
+      router.push(`/congestionResult?line=${line}&speed=${speed}&direction=${direction}&station=${station}`)
     },
     [router] //form
   )
