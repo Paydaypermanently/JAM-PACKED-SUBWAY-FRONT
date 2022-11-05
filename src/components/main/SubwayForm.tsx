@@ -3,20 +3,41 @@ import styled from 'styled-components'
 import DirectionField from '../modules/DirectionField'
 import StationField from '../modules/StationField'
 import LineField from '../modules/LineField'
+import SpeedField from '../modules/SpeedField'
+import {FormikContextType, useFormikContext} from 'formik'
 
 function SubwayForm() {
+  const form: FormikContextType<any> = useFormikContext()
+
   return (
     <Wrapper>
       <FormTable>
-        <tr>
-          <LineField />
-        </tr>
-        <tr>
-          <StationField />
-        </tr>
-        <tr>
-          <DirectionField />
-        </tr>
+        <tbody>
+          <tr>
+            <td>
+              <LineField />
+            </td>
+          </tr>
+
+          {(form.getFieldProps('line').value === '1호선' || form.getFieldProps('line').value === '9호선') && (
+            <tr>
+              <td>
+                <SpeedField />
+              </td>
+            </tr>
+          )}
+
+          <tr>
+            <td>
+              <DirectionField />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StationField />
+            </td>
+          </tr>
+        </tbody>
       </FormTable>
     </Wrapper>
   )
@@ -36,7 +57,8 @@ const Wrapper = styled.div`
 const FormTable = styled.table`
   margin-top: 50px;
   margin-bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
+  tbody {
+    height: 100%;
+  }
 `

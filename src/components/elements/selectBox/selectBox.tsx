@@ -1,5 +1,6 @@
 import React, {HTMLProps, useMemo} from 'react'
 import styled, {StyledComponentProps} from 'styled-components'
+import {FormikContextType, useFormikContext} from 'formik'
 
 export interface IOptionProps extends Omit<HTMLProps<HTMLOptionElement>, 'value'> {
   key?: string | number
@@ -15,6 +16,8 @@ export interface ISelectProps extends StyledComponentProps<'select', any, any, a
 }
 
 function SelectBox({placeholder, options, onSelect, endAdornment, ...rest}: ISelectProps) {
+  const form: FormikContextType<any> = useFormikContext()
+
   const defaultValue = useMemo(() => {
     const index = options.findIndex((option) => {
       if (typeof option === 'string') return option === rest.defaultValue
@@ -34,6 +37,7 @@ function SelectBox({placeholder, options, onSelect, endAdornment, ...rest}: ISel
           e.target.style.color = 'black'
           const select = options[Number(e.target.value)]
           if (onSelect) onSelect(typeof select === 'string' ? select : select.value)
+          form.setFieldValue(rest.name, select)
         }}
       >
         {placeholder && (
