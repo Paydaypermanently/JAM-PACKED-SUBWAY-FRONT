@@ -1,10 +1,39 @@
 import {GetServerSidePropsContext} from 'next'
-import {useEffect} from 'react'
-import {toast} from 'react-toastify'
+import {useCallback, useEffect} from 'react'
+import {toast, ToastContainer} from 'react-toastify'
 import {getExpressTrainCongestion, getRegularTrainCongestion} from '../api/subway'
+import ReturnButton from '../components/congestionResult/ReturnButton'
+import Congestion from '../components/congestionResult/Congestion'
+import ArrivalInfo from '../components/congestionResult/ArrivalInfo'
 
 function CongestionResult(props: ITrainCongestion) {
-  return <>결과</>
+  useEffect(() => {
+    if (props.suc === false) toast.error('열차 정보가 없습니다.')
+  }, [props])
+
+  const InvalidTrain = useCallback(() => {
+    return (
+      <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
+        <h1 style={{position: 'absolute', top: '50%', color: 'white', width: 'fit-content'}}>열차 정보가 없습니다!</h1>
+      </div>
+    )
+  }, [])
+  return (
+    <>
+      {props.suc === false ? (
+        <>
+          <ToastContainer position={'top-center'} />
+          <InvalidTrain />
+        </>
+      ) : (
+        <>
+          <ReturnButton />
+          <Congestion congestion={props} />
+          <ArrivalInfo congestion={props} />
+        </>
+      )}
+    </>
+  )
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {

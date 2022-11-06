@@ -11,7 +11,7 @@ function Layout({children}: PropsWithChildren<any>) {
   const isMobile = useBreakpoint(down('mobile'))
 
   useEffect(() => {
-    // !isMobile && toast.error('현재 모바일 버전만 사용이 가능합니다.')
+    if (isMobile === false) toast.error('현재 모바일 버전만 사용이 가능합니다.')
   }, [isMobile])
   return (
     <Wrapper>
