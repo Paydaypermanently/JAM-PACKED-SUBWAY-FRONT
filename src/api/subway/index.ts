@@ -1,12 +1,15 @@
 import {AxiosPromise} from 'axios'
 import request from '../../utils/request'
 
+const PATH = 'subway'
 function getRegularTrainCongestion({
   line,
   stationName,
   way
 }: IGetRegularTrainCongestionParams): AxiosPromise<ITrainCongestion> {
-  return request({url: `/${line}/${stationName}/${way}`, method: 'get'})
+  const encodedStationName = encodeURIComponent(stationName)
+  const encodedWay = encodeURIComponent(way)
+  return request({url: `/${PATH}/${line}/${encodedStationName}/${encodedWay}`, method: 'get'})
 }
 
 function getExpressTrainCongestion({
@@ -15,7 +18,10 @@ function getExpressTrainCongestion({
   way,
   fest
 }: IGetExpressTrainCongestionParams): AxiosPromise<ITrainCongestion> {
-  return request({url: `/${line}/${stationName}/${way}/${fest}`, method: 'get'})
+  const encodedStationName = encodeURIComponent(stationName)
+  const encodedWay = encodeURIComponent(way)
+
+  return request({url: `subway/${line}/${encodedStationName}/${encodedWay}/${fest}`, method: 'get'})
 }
 
 export {getExpressTrainCongestion, getRegularTrainCongestion}
