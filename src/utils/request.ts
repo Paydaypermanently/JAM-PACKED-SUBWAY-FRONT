@@ -1,12 +1,14 @@
 import axios, {AxiosRequestConfig} from 'axios'
 import getJson from './getJson'
 
-const BASE_URL = `${process.env.NEXT_PUBLIC_BASE_URL}`
+const BASE_URL = `${process.env.NEXT_PUBLIC_API_URL}`
 
 export const instance = axios.create({
   baseURL: BASE_URL,
-  withCredentials: true,
-  timeout: 3000
+  timeout: 3000,
+  headers: {
+    'Content-Type': 'application/json'
+  }
 })
 
 instance.interceptors.response.use((response) => response, errorHandler)

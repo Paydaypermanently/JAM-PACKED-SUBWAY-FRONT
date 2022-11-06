@@ -10,12 +10,9 @@ import 'react-toastify/dist/ReactToastify.css'
 function Layout({children}: PropsWithChildren<any>) {
   const isMobile = useBreakpoint(down('mobile'))
 
-  const notify = useCallback(() => {
-    toast.error('현재 모바일 버전만 사용이 가능합니다.')
-  }, [])
   useEffect(() => {
-    notify()
-  }, [isMobile, notify])
+    if (isMobile === false) toast.error('현재 모바일 버전만 사용이 가능합니다.')
+  }, [isMobile])
   return (
     <Wrapper>
       {!!isMobile ? (
@@ -26,7 +23,7 @@ function Layout({children}: PropsWithChildren<any>) {
         </Wrapper>
       ) : (
         <PCWrapper>
-          <ToastContainer position={'top-center'} />
+          {!isMobile && <ToastContainer position={'top-center'} />}
           <h1>준비중..</h1>
         </PCWrapper>
       )}
