@@ -3,7 +3,7 @@ import {useCallback, useEffect} from 'react'
 import {toast, ToastContainer} from 'react-toastify'
 import {getExpressTrainCongestion, getRegularTrainCongestion} from '../api/subway'
 import ReturnButton from '../components/congestionResult/ReturnButton'
-import Congestion from '../components/congestionResult/Congestion'
+import CongestionInfo from '../components/congestionResult/CongestionInfo'
 import ArrivalInfo from '../components/congestionResult/ArrivalInfo'
 
 function CongestionResult(props: ITrainCongestion) {
@@ -28,7 +28,7 @@ function CongestionResult(props: ITrainCongestion) {
       ) : (
         <>
           <ReturnButton />
-          <Congestion congestion={props} />
+          <CongestionInfo congestion={props} />
           <ArrivalInfo congestion={props} />
         </>
       )}

@@ -1,29 +1,38 @@
+import {useRouter} from 'next/router'
 import styled from 'styled-components'
+import TrainCongestion from '../../components/congestionResult/TrainCongestion'
 
 interface IProps {
   congestion: ITrainCongestion
 }
-function Congestion({congestion}: IProps) {
+function CongestionInfo({congestion}: IProps) {
+  const {query} = useRouter()
+  // console.log(congestion)
   return (
     <Wrapper>
-      <Direction>dsdssdsd</Direction>
+      <Direction>{congestion.data?.trainLineNm}</Direction>
+
       <CurrentStationWrapper>
         <CurrentStation>
           <div className="title">현재역</div>
-          <div className="line">2호선</div>
-          <div className="station">신림</div>
+          <div className="line">{query.line}</div>
+          <div className="station">{query.station}</div>
         </CurrentStation>
 
         <CongesitonWrapper>
           <div className="title">타실 열차 정보</div>
-          <div className="train_number">2388</div>
+          <div className="train_number">{congestion.data?.trainNumber}</div>
         </CongesitonWrapper>
       </CurrentStationWrapper>
+
+      <TrainCongestionWrapper>
+        {!!congestion?.data?.BokJobDo && <TrainCongestion bokjobdo={congestion?.data?.BokJobDo} />}
+      </TrainCongestionWrapper>
     </Wrapper>
   )
 }
 
-export default Congestion
+export default CongestionInfo
 
 const Wrapper = styled.div`
   width: 100%;
@@ -95,4 +104,12 @@ const CongesitonWrapper = styled.div`
     font-weight: 330;
     margin-top: 5px;
   }
+`
+
+const TrainCongestionWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
 `

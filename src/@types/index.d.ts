@@ -32,8 +32,8 @@ interface ITrainCongestion {
     subWayStatus?: string
     BokJobDo: {
       suc: boolean
-      aver: number
-      line: number[]
+      aver: string
+      line: string[]
     }
   } | null
 }
