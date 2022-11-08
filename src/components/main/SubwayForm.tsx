@@ -37,8 +37,12 @@ function SubwayForm() {
               <StationField />
             </td>
           </tr>
+          <tr>
+            <td>
+              <div className="station_example">ex) 강남</div>
+            </td>
+          </tr>
         </tbody>
-        <div className="station_example">ex) 강남</div>
       </FormTable>
     </Wrapper>
   )
@@ -56,8 +60,8 @@ const Wrapper = styled.div`
   justify-content: center;
 
   .station_example {
-    bottom: 325px;
-    position: absolute;
+    bottom: 15px;
+    position: relative;
     font-size: 15px;
     color: #858585;
     font-weight: 380;
