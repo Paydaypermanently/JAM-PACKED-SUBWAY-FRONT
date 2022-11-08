@@ -38,6 +38,7 @@ function SubwayForm() {
             </td>
           </tr>
         </tbody>
+        <div className="station_example">ex) 강남</div>
       </FormTable>
     </Wrapper>
   )
@@ -53,6 +54,14 @@ const Wrapper = styled.div`
   border-radius: 30px;
   display: flex;
   justify-content: center;
+
+  .station_example {
+    bottom: 325px;
+    position: absolute;
+    font-size: 15px;
+    color: #858585;
+    font-weight: 380;
+  }
 `
 const FormTable = styled.table`
   margin-top: 50px;
