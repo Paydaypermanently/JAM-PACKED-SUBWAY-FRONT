@@ -34,7 +34,6 @@ function MyApp({Component, pageProps}: AppProps) {
         <GlobalStyles />
         <RecoilRoot>
           <QueryClientProvider client={queryClient}>
-            <ReactQueryDevtools initialIsOpen={false} />
             <Layout>
               <Component {...pageProps} />
             </Layout>
