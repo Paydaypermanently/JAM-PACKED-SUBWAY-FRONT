@@ -45,7 +45,7 @@ const PCWrapper = styled.div`
 `
 const Wrapper = styled.div`
   background: #273a6e 0 0 no-repeat padding-box;
-  height: 100vh;
+  height: 100%;
 `
 const Section = styled.div`
   margin: 100px 44px 0 44px;
