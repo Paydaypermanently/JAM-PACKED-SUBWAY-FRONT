@@ -1,11 +1,17 @@
 import Image from 'next/image'
 import styled from 'styled-components'
+import {useRouter} from 'next/router'
 
 function ReturnButton() {
+  const {push} = useRouter()
   return (
     <Wrapper>
-      <button>
-        <Image src={`/assets/images/selectArrow.png`} alt="arrow" width={13} height={11} />
+      <button
+        onClick={() => {
+          push('/')
+        }}
+      >
+        <Image src={`/assets/images/returnArrow.png`} alt="arrow" width={35} height={35} />
       </button>
     </Wrapper>
   )
