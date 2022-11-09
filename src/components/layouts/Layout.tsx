@@ -14,20 +14,20 @@ function Layout({children}: PropsWithChildren<any>) {
     if (isMobile === false) toast.error('현재 모바일 버전만 사용이 가능합니다.')
   }, [isMobile])
   return (
-    <Wrapper>
+    <>
       {!!isMobile ? (
-        <Wrapper>
+        <MobileWrapper>
           <Header />
           <Section>{children}</Section>
           <Footer />
-        </Wrapper>
+        </MobileWrapper>
       ) : (
         <PCWrapper>
           {!isMobile && <ToastContainer position={'top-center'} />}
           <h1>준비중..</h1>
         </PCWrapper>
       )}
-    </Wrapper>
+    </>
   )
 }
 
@@ -43,10 +43,17 @@ const PCWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `
-const Wrapper = styled.div`
+
+const MobileWrapper = styled.div`
+  min-height: 900px;
+  width: 100%;
+  max-width: 1024px;
   background: #273a6e 0 0 no-repeat padding-box;
-  height: 100%;
+  margin: 0 auto;
+  padding: 0;
 `
+
+const Wrapper = styled.div``
 const Section = styled.div`
   margin: 100px 44px 0 44px;
 `

@@ -9,7 +9,7 @@ interface IProps {
 }
 function CongestionInfo({congestion}: IProps) {
   const {query} = useRouter()
-  // console.log(congestion)
+
   return (
     <Wrapper>
       <Direction>{congestion.data?.trainLineNm}</Direction>
@@ -33,12 +33,15 @@ function CongestionInfo({congestion}: IProps) {
       </TrainCongestionWrapper>
 
       <TrainWholeCongestionWrapper>
-        <div className="info">해당 열차의 전체 혼잡도 정보</div>
-        <TrainState aver={Number(congestion.data?.BokJobDo.aver)} />
+        {!!congestion.data?.BokJobDo.suc && (
+          <>
+            {' '}
+            <div className="info">해당 열차의 전체 혼잡도 정보</div>
+            <TrainState aver={Number(congestion.data?.BokJobDo.aver)} />
+          </>
+        )}
       </TrainWholeCongestionWrapper>
-      <MinimumCartWrapper>
-        <MinimumCongestionCart />
-      </MinimumCartWrapper>
+      <MinimumCartWrapper>{!!congestion.data?.BokJobDo.suc && <MinimumCongestionCart />}</MinimumCartWrapper>
     </Wrapper>
   )
 }

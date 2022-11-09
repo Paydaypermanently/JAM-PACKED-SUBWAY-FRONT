@@ -36,7 +36,7 @@ function TrainCongestion({bokjobdo}: IProps) {
 
   return (
     <Wrapper>
-      {bokjobdo.suc === false ? (
+      {bokjobdo.suc === false || !bokjobdo ? (
         <InvalidCongeston />
       ) : (
         <Train>

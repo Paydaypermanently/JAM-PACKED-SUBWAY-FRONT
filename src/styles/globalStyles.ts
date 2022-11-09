@@ -64,6 +64,16 @@ const GlobalStyles = createGlobalStyle`
       border: none;
       background: transparent;
       font-size: 1rem;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+
+    select {
+      /*ios대응*/
+      background:none;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
     }
 
     button {

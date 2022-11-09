@@ -39,7 +39,15 @@ function SubwayForm() {
           </tr>
           <tr>
             <td>
-              <div className="station_example">ex) 강남</div>
+              <div
+                className={
+                  form.getFieldProps('line').value === '1호선' || form.getFieldProps('line').value === '9호선'
+                    ? 'express_station_example'
+                    : 'station_example'
+                }
+              >
+                ex) 강남
+              </div>
             </td>
           </tr>
         </tbody>
@@ -59,12 +67,20 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
 
-  .station_example {
-    bottom: 15px;
-    position: relative;
+  .station_example,
+  .express_station_example {
     font-size: 15px;
     color: #858585;
     font-weight: 380;
+  }
+
+  .station_example {
+    bottom: 15px;
+    position: relative;
+  }
+  .express_station_example {
+    position: relative;
+    bottom: 2px;
   }
 `
 const FormTable = styled.table`
