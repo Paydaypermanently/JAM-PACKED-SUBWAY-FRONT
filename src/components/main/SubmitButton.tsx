@@ -23,4 +23,9 @@ const Wrapper = styled.div`
   align-items: center;
   color: #4d4d4d;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  & > button {
+    width: 100%;
+    height: 100%;
+  }
 `
