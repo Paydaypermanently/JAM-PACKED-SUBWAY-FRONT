@@ -41,7 +41,7 @@ function TrainState({aver}: IProps) {
           매우혼잡: 접촉이 있을만큼 매우 혼잡합니다.
         </div>
       )
-    else
+    else if (inRange(aver, 150, 230))
       return (
         <div className="state" style={{color: '#F90004'}}>
           발 디딜 틈조차 없을 만큼 혼잡한 상태입니다.

@@ -21,7 +21,7 @@ function getExpressTrainCongestion({
   const encodedStationName = encodeURIComponent(stationName)
   const encodedWay = encodeURIComponent(way)
 
-  return request({url: `subway/${line}/${encodedStationName}/${encodedWay}/${fest}`, method: 'get'})
+  return request({url: `${PATH}/${line}/${encodedStationName}/${encodedWay}/${fest}`, method: 'get'})
 }
 
 export {getExpressTrainCongestion, getRegularTrainCongestion}

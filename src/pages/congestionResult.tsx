@@ -36,6 +36,8 @@ function CongestionResult(props: ITrainCongestion) {
   )
 }
 
+export default CongestionResult
+
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const {query} = context
   const {line, speed, direction, station} = query
@@ -95,5 +97,3 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   return {props}
 }
-
-export default CongestionResult

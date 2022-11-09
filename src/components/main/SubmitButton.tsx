@@ -11,6 +11,7 @@ function SubmitButton() {
 export default SubmitButton
 
 const Wrapper = styled.div`
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   margin-top: 30px;
   width: 100%;
   height: 60px;
